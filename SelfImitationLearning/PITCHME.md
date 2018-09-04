@@ -34,7 +34,9 @@ actor-critic法によって過去の良い経験を模倣しようとする
 
 `\({\cal D} = \{(s_t, a_t, R_t)\}\)`: Replay Buffer
 
-__目的関数__
+---
+
+## 目的関数
 
 `\[
 \begin{aligned}
