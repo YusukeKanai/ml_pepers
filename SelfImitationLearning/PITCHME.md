@@ -34,7 +34,7 @@ actor-critic法によって過去の良い経験を模倣しようとする
 
 `\({\cal D} = \{(s_t, a_t, R_t)\}\)`: Replay Buffer
 
----
++++
 
 ## 目的関数
 
@@ -50,7 +50,7 @@ where <br>
 `\(\pi_{\theta}\): policy, \(V_{\theta}(s)\)`: value function <br>
 `\(\beta^{\it sil} \in \mathbb{R}^+\)`
 
----
++++
 
 ## `\({\cal L^{\it sil}_{policy}}\)` の解釈
 
@@ -59,7 +59,7 @@ where <br>
 
 `\(R > V_{\theta}(s)\)` とエージェントが推定すれば過去のその行動は採用されやすいよう学習される。一方で`\(R < V_{\theta}(s)\)` であれば何もされない(学習が進まない)
 
----
++++
 
 ## `\({\cal L^{\it sil}_{value}}\)` の解釈
 
