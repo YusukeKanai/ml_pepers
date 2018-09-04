@@ -13,7 +13,7 @@
 
 ## 探索と利用のトレードオフ
 
-![トレードオフ](assets/exploration_exploition_trade-off.png)
+![トレードオフ](SelfImitationLearning/assets/exploration_exploition_trade-off.png)
 
 _[Reinforce Learning: An Introduction](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf) p.3より_
 
