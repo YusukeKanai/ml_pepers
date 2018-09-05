@@ -78,6 +78,8 @@ lower-bound-soft-Q-learning under entropy-regularlized RL framework__
 
 ## Entropy-Regularized Reinforcement Learning
 
+最適な方策`\(\pi ^{*} \)`を求めたい
+
 `\[
 \pi ^{*} = \text{argmax} _{\pi} \mathbb{E}_{\pi}[\Sigma ^{\infty}_{t=0}\gamma ^{t}(r_t +\alpha {\cal H}^{\pi}_{t})]
 \]`
@@ -85,3 +87,43 @@ lower-bound-soft-Q-learning under entropy-regularlized RL framework__
 where <br>
 `\({\cal H}^{\pi}_{t} = -\log {\pi}(a_t|s_t)\)`: entropy of the policy `\(\pi\)` <br>
 `\(\alpha \geq 0\)` : the weight of entropy bonus
+
+エントロピーを付与することによって、　__ある状態での取りうる行動が分散された方がいい__　を達成する。(探索する)
+
++++
+
+## optimal soft Q-function / optimal soft value function
+
+`\[
+\begin{aligned}
+Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\pi ^{*}}_k)] \\ 
+V ^{*} (s_t) &= \alpha \log {\Sigma _{\alpha }\exp {(Q ^{*}(s_t, a)/{\alpha })}}
+\end{aligned}
+\]`
+
+この定義の元で以下の関係式が導出されることが知られている。
+
+`\[
+\pi ^{*}(a|s) = \exp ((Q ^{*}(s, a)-V ^{*}(s))/\alpha)
+\]`
+
++++
+
+## Lower bound soft Q-learning
+
+最適方策は他の方策よりも価値の高いため、任意の方策`\(\nu \)`について以下が成り立つ
+
+`\[
+\begin{aligned}
+Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\pi ^{*}}_k)] \\ 
+&\geq \mathbb{E}_{\nu }[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\nu }_k)]
+\end{aligned}
+\]`
+
+方策`\(\nu \)`に対して以下の目的関数を用意する
+
+`\[
+{\cal L}^{lb} = \mathbb{E}_{s,a,R~\nu }[¥frac{1}{2} \|(R-Q_{\theta }(s,a))_+\|^2]
+\]`
+
+これはある行動`\(a \)`をとった時の報酬の期待値が、実際の報酬より小さければその行動は修正されるべきであると解釈できる。
