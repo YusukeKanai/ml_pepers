@@ -150,6 +150,10 @@ Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^
 \end{aligned}
 \]`
 
-となり`\(\alpha \rightarrow 0\)` とすると`\({\cal L^{\it lb}_{policy}} = {\cal L^{\it sil}_{policy}}, {\cal L^{\it lb}_{value}} – {\cal L^{\it sil}_{value}}\)`が得られる。
++++
+
+さらに
+
+`\(\alpha \rightarrow 0\)` とすると`\({\cal L^{\it lb}_{policy}} = {\cal L^{\it sil}_{policy}}, {\cal L^{\it lb}_{value}} – {\cal L^{\it sil}_{value}}\)`が得られる。
 
 SILアルゴリズムはlower bound of the optimal Q-valueを求めることに一致することを意味する。
