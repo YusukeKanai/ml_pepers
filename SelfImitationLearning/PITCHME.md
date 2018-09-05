@@ -269,7 +269,7 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 - 探索ボーナスを追加 `\(r_{\it exp} = \beta / \sqrt{N(s)}\)`
 -  SILによって学習が早く進んでいる.(良い経験が生かされている)
 
-(画像)
+![Key-Door-Treasure](SelfImitationLearning/assets/Key-Door-Treasure.png)
 
 +++
 
@@ -285,10 +285,14 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 
 - 探索が困難なAtariのゲームにおいてSILがあった方が有利に働きやすかった
 
+![compare_result_graph](SelfImitationLearning/assets/compare_result_graph.png)
+
 +++
 
 - 他のアルゴリズムと比較しても良い成績となりやすかったが「Venture」のみ成績が悪かった.
 良い経験を一度も得られなかったからだと考えられる
+
+![compare_result](SelfImitationLearning/assets/compare_result.png)
 
 ---
 
@@ -296,10 +300,14 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 
 - 6/7 のAtariのゲームでSILが有効に働いた
 
+![sil_effect](SelfImitationLearning/assets/sil_effect.png)
+
 +++
 
 - A2Cのみの方がいい結果のものもある.ゲーム初期の経験が後半に活かせないゲームもあり、これがネックになっていそう。
 - - SILの更新回数を減らすか目的関数のSIL項を小さくするパラメタを導入することで解決できると考えられる.
+
+![sil_outperforms](SelfImitationLearning/assets/sil_outperforms.png)
 
 ---
 
