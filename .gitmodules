@@ -1,0 +1,3 @@
+[submodule "SelfImitationLearning/implementation"]
+	path = SelfImitationLearning/implementation
+	url = https://github.com/junhyukoh/self-imitation-learning
