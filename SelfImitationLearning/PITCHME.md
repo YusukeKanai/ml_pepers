@@ -129,3 +129,27 @@ Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^
 \]`
 
 これはある行動`\(a \)`をとった時の報酬の期待値が、実際の報酬より小さければその行動は修正されるべきであると解釈できる。
+
++++
+
+以下、先ほどの最適解を求めようとしよう、すると以下が導かれる
+
+`\[
+\begin{aligned}
+\nabla {\cal L}^{\it lb} = \mathbb{E}[\alpha \nabla _\theta {\cal L}^{\it lb}_{policy} + \nabla _\theta {\cal L}^{\it lb}_{value}]
+\end{aligned}
+\]`
+
+ここで
+
+`\[
+\begin{aligned}
+{\cal L^{\it lb}_{policy}} &= -\log \pi_{\theta}(a|s)(\hat{R}-V_{\theta}(s))_{+} \\
+{\cal L^{\it lb}_{value}} &= \frac{1}{2}\|(\hat{R}-V_{\theta}(s))\|^2 \\ 
+\hat{R} &= R-\alpha \log \pi _\theta (a|s)
+\end{aligned}
+\]`
+
+となり`\(\alpha \rightarrow 0\)` とすると`\({\cal L^{\it lb}_{policy}} = {\cal L^{\it sil}_{policy}}, {\cal L^{\it lb}_{value}} – {\cal L^{\it sil}_{value}}\)`が得られる。
+
+SILアルゴリズムはlower bound of the optimal Q-valueを求めることに一致することを意味する。
