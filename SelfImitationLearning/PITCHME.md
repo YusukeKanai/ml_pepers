@@ -2,6 +2,8 @@
 
 [arxiv](https://arxiv.org/pdf/1806.05635v1.pdf)
 
+[github](https://github.com/junhyukoh/self-imitation-learning)
+
 ---
 
 ## この論文の概要
@@ -20,6 +22,52 @@ _[Reinforce Learning: An Introduction](https://web.stanford.edu/class/psych209/R
 ---
 
 ## 関連研究
+
++++
+
+## Exploration
+
+- 最近では好奇心や不確定性を探索に扱うことが多い
+- 探索のため利用の役割の研究は従来からされているが、「学習したものを利用する」が主であり、今回の論文では「学習はしていないが経験した」を対象としている
+
++++
+
+## Episodic control
+
+- 過去の良かった経験を活かす極端な方法である
+- 実用するにはstep毎に関連するstateを検索するため動作が遅いという問題や、
+non-parametric policyなので汎化性能がよくないと思われる。
+
++++
+
+## Experience replay
+
+- TD errorに基づいて過去の経験に優先順位をつける手法:Priority experience replayが有効な手段として過去に提案されている
+- - Self-Imitation Learningでも活用している
+- Priority experience replayはSarsaやQ学習のような価値反復に基づく学習には有効であることは示されたが、
+actor-criticのような方策勾配に基づく学習への適応は難しかった
+
++++
+
+## Experience replay for actor-critic
+
+- actor-criticも過去の経験を利用してはいるが、その多くは方策オフ型のactor-criticである.
+- 過去のpolicyと現行のpolicyが異なるということはよくあり(方策の使い回しが行われない)、そのため上手く学習できないことがある
+
++++
+
+## Connection between policy gradient and Q-learning
+
+- 最近の研究で方策勾配とentropy正則化付きQ学習が密な関係であることが知られている
+- Q学習そのものを使った研究は既存にはあるが、本論文ではlower bound Q学習を利用するところが新しい
+
++++
+
+## Learning from imperfect demonstrations
+
+- 強化学習タスクでは限られたデータで学習するということが往々にして扱われる
+- 自身の経験を学習データとして扱う.
+- 似たような研究は他にもあるが理論的背景が十分出ないことがある.本論文では理論的背景も正当化している
 
 ---
 
@@ -64,6 +112,13 @@ where <br>
 ## `\({\cal L^{\it sil}_{value}}\)` の解釈
 
 推定値`\(V_{\theta}(s)\)` をRへ近づける
+
+---
+
+## Prioritized Replay
+
+効率的に学習が進むように経験再生の順位つけを行われている
+具体的には経験の選択確率は`\((R-V_{\theta }(s))_+\)`に比例する。
 
 ---
 
@@ -187,4 +242,82 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 
 ## アルゴリズム
 
-![トレードオフ](SelfImitationLearning/assets/psuedo_code.png)
+![擬似コード](SelfImitationLearning/assets/psuedo_code.png)
+
+---
+
+## 実験
+
+- Key-Door-Treasure Domain
+- Hard Exploration Atari Games
+- Overall Performance on Atari Games
+- Effect of Lower Bound Soft Q-Learning
+- Performance on MuJoCo
+
+---
+
+## 実装
+
+- 3層のDQN
+- 入力4frame (SIL学習は4回繰返す)
+- ゲームの終了をエピソードの終端にした
+- MuJoCoではMLPを2層64unitとした
+- MuJoCoではSIL学習を10回繰り返した
+
+---
+
+## Key-Door-Treasure Domain
+
+- 探索ボーナスを追加 `\(r_{\it exp} = \beta / \sqrt{N(s)}\)`
+-  SILによって学習が早く進んでいる.(良い経験が生かされている)
+
+![Key-Door-Treasure](SelfImitationLearning/assets/Key-Door-Treasure.png)
+
++++
+
+## Apple-Key-Door-Treasure
+
+- 50ステップ以内により多くのりんごを集めてドアを開けるゲーム
+- 探索ボーナスがあることで宝を取得できるようになっている
+- SILは短期的な探索に探索ボーナスは長期的な探索に使っており、相補的となっている
+
+---
+
+## Hard Exploration Atari Games
+
+- 探索が困難なAtariのゲームにおいてSILがあった方が有利に働きやすかった
+
+![compare_result_graph](SelfImitationLearning/assets/compare_result_graph.png)
+
++++
+
+- 他のアルゴリズムと比較しても良い成績となりやすかったが「Venture」のみ成績が悪かった.
+良い経験を一度も得られなかったからだと考えられる
+
+![compare_result](SelfImitationLearning/assets/compare_result.png)
+
+---
+
+## Overall Performance on Atari Games
+
+- 6/7 のAtariのゲームでSILが有効に働いた
+
+![sil_effect](SelfImitationLearning/assets/sil_effect.png)
+
++++
+
+- A2Cのみの方がいい結果のものもある.ゲーム初期の経験が後半に活かせないゲームもあり、これがネックになっていそう。
+- - SILの更新回数を減らすか目的関数のSIL項を小さくするパラメタを導入することで解決できると考えられる.
+
+![sil_outperforms](SelfImitationLearning/assets/sil_outperforms.png)
+
+---
+
+##  Effect of Lower Bound Soft Q-Learning
+
+- 方策オフ型actor-criticを使えばSILじゃなくて十分性能が出るのか確認
+- - ACPERで試したところ十分な性能が出なかった
+
+---
+
+##  Performance on MuJoCo
