@@ -21,6 +21,52 @@ _[Reinforce Learning: An Introduction](https://web.stanford.edu/class/psych209/R
 
 ## 関連研究
 
++++
+
+## Exploration
+
+- 最近では好奇心や不確定性を探索に扱うことが多い
+- 探索のため利用の役割の研究は従来からされているが、「学習したものを利用する」が主であり、今回の論文では「学習はしていないが経験した」を対象としている
+
++++
+
+## Episodic control
+
+- 過去の良かった経験を活かす極端な方法である
+- 実用するにはstep毎に関連するstateを検索するため動作が遅いという問題や、
+non-parametric policyなので汎化性能がよくないと思われる。
+
++++
+
+## Experience replay
+
+- TD errorに基づいて過去の経験に優先順位をつける手法:Priority experience replayが有効な手段として過去に提案されている
+- - Self-Imitation Learningでも活用している
+- Priority experience replayはSarsaやQ学習のような価値反復に基づく学習には有効であることは示されたが、
+actor-criticのような方策勾配に基づく学習への適応は難しかった
+
++++
+
+## Experience replay for actor-critic
+
+- actor-criticも過去の経験を利用してはいるが、その多くは方策オフ型のactor-criticである.
+- 過去のpolicyと現行のpolicyが異なるということはよくあり(方策の使い回しが行われない)、そのため上手く学習できないことがある
+
++++
+
+## Connection between policy gradient and Q-learning
+
+- 最近の研究で方策勾配とentropy正則化付きQ学習が密な関係であることが知られている
+- Q学習そのものを使った研究は既存にはあるが、本論文ではlower bound Q学習を利用するところが新しい
+
++++
+
+## Learning from imperfect demonstrations
+
+- 強化学習タスクでは限られたデータで学習するということが往々にして扱われる
+- 自身の経験を学習データとして扱う.
+- 似たような研究は他にもあるが理論的背景が十分出ないことがある.本論文では理論的背景も正当化している
+
 ---
 
 ## Self-Imitation Learning
