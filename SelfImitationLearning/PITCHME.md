@@ -113,6 +113,13 @@ where <br>
 
 ---
 
+## Prioritized Replay
+
+効率的に学習が進むように経験再生の順位つけを行われている
+具体的には経験の選択確率は`\((R-V_{\theta }(s))_+\)`に比例する。
+
+---
+
 ## SILの理論的裏付け
 
 ### Claim
@@ -259,7 +266,7 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 
 ## Key-Door-Treasure Domain
 
-- 探索ボーナスを追加 \(r_{¥it exp} = ¥beta / ¥sqrt{N(s)}\)
+- 探索ボーナスを追加 `\(r_{¥it exp} = ¥beta / ¥sqrt{N(s)}\)`
 -  SILによって学習が早く進んでいる.(良い経験が生かされている)
 
 (画像)
