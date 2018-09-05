@@ -157,3 +157,29 @@ Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^
 `\(\alpha \rightarrow 0\)` とすると`\({\cal L^{\it lb}_{policy}} = {\cal L^{\it sil}_{policy}}, {\cal L^{\it lb}_{value}} – {\cal L^{\it sil}_{value}}\)`が得られる。
 
 SILアルゴリズムはlower bound of the optimal Q-valueを求めることに一致することを意味する。
+
+---
+
+## A2Cとの結合
+
+A2Cの目的関数
+`\[
+\begin{aligned}
+{\cal L^{\it a2c}} &= \mathbb{E}_{s, a \sim \pi _\theta }[{\cal L^{\it a2c}_{policy}} + \beta ^{\it a2c}{\cal L^{\it a2c}_{value}}] \\
+{\cal L^{\it a2c}_{policy}} &= -\log \pi_{\theta}(a_t|s_t)(V^{n}_{t}-V_{\theta}(s_t))-\alpha {\cal H}^{\pi_{\theta}}_{t} \\
+{\cal L^{\it a2c}_{value}} &= \frac{1}{2}\|(V_{\theta}(s)-V^{n}_{t})\|^2 \\
+\end{aligned}
+\]`
+where
+`\[
+V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
+\]`
++++
+
+## A2CとSILの関係
+
+- A2Cは方策オン型の強化学習であり、より良い方策を探索する(explore)
+- SILは方策オフ型の強化学習であり、過去の経験から適した方策を利用する(exploit)
+
+共にエントロピー正則化強化学習の元で最適ソフトQ関数を求めようとしている <br>
+相補的に最適方策を求めようとしている
