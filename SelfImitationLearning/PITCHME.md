@@ -266,7 +266,7 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 
 ## Key-Door-Treasure Domain
 
-- 探索ボーナスを追加 `\(r_{¥it exp} = ¥beta / ¥sqrt{N(s)}\)`
+- 探索ボーナスを追加 `\(r_{\it exp} = \beta / \sqrt{N(s)}\)`
 -  SILによって学習が早く進んでいる.(良い経験が生かされている)
 
 (画像)
