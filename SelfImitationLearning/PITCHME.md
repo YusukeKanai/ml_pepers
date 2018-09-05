@@ -34,9 +34,9 @@ actor-critic法によって過去の良い経験を模倣しようとする
 
 `\({\cal D} = \{(s_t, a_t, R_t)\}\)`: Replay Buffer
 
-+++
+---
 
-## 目的関数
+## SILの目的関数
 
 `\[
 \begin{aligned}
@@ -64,3 +64,24 @@ where <br>
 ## `\({\cal L^{\it sil}_{value}}\)` の解釈
 
 推定値`\(V_{\theta}(s)\)` をRへ近づける
+
+---
+
+## SILの理論的裏付け
+
+### Claim
+
+_The self-imitation learning objective can be viewed as an implementation of
+lower-bound-soft-Q-learning under entropy-regularlized RL framework__
+
++++
+
+## Entropy-Regularized Reinforcement Learning
+
+`\[
+\pi ^{*} = \text{argmax} _{\pi} \mathbb{E}[\Sigma ^{\infty}_{t=0}\gamma ^{t}(r_t +\alpha {\cal H}^{\pi}_{t})]
+\]`
+
+where
+`\({\cal H}^{\pi}_{t} = -\log {\pi}(a_t|s_t)\)`: entropy of the policy `\(\pi\)` <br>
+`\(\alpha \geq 0\)` : the weight of entropy bonus
