@@ -79,9 +79,9 @@ lower-bound-soft-Q-learning under entropy-regularlized RL framework__
 ## Entropy-Regularized Reinforcement Learning
 
 `\[
-\pi ^{*} = \text{argmax} _{\pi} \mathbb{E}[\Sigma ^{\infty}_{t=0}\gamma ^{t}(r_t +\alpha {\cal H}^{\pi}_{t})]
+\pi ^{*} = \text{argmax} _{\pi} \mathbb{E}_{\pi}[\Sigma ^{\infty}_{t=0}\gamma ^{t}(r_t +\alpha {\cal H}^{\pi}_{t})]
 \]`
 
-where
+where <br>
 `\({\cal H}^{\pi}_{t} = -\log {\pi}(a_t|s_t)\)`: entropy of the policy `\(\pi\)` <br>
 `\(\alpha \geq 0\)` : the weight of entropy bonus
