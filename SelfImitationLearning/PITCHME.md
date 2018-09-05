@@ -2,7 +2,7 @@
 
 [arxiv](https://arxiv.org/pdf/1806.05635v1.pdf)
 
-[github](https://github.com/junhyukoh/self-imitation-learning.)
+[github](https://github.com/junhyukoh/self-imitation-learning)
 
 ---
 
