@@ -187,4 +187,4 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 
 ## アルゴリズム
 
-![トレードオフ](SelfImitationLearning/assets/psuedo_code.png)
+![擬似コード](SelfImitationLearning/assets/psuedo_code.png)
