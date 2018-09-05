@@ -188,3 +188,73 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 ## アルゴリズム
 
 ![擬似コード](SelfImitationLearning/assets/psuedo_code.png)
+
+---
+
+## 実験
+
+- Key-Door-Treasure Domain
+- Hard Exploration Atari Games
+- Overall Performance on Atari Games
+- Effect of Lower Bound Soft Q-Learning
+- Performance on MuJoCo
+
+---
+
+## 実装
+
+- 3層のDQN
+- 入力4frame (SIL学習は4回繰返す)
+- ゲームの終了をエピソードの終端にした
+- MuJoCoではMLPを2層64unitとした
+- MuJoCoではSIL学習を10回繰り返した
+
+---
+
+## Key-Door-Treasure Domain
+
+- 探索ボーナスを追加 \(r_{¥it exp} = ¥beta / ¥sqrt{N(s)}\)
+-  SILによって学習が早く進んでいる.(良い経験が生かされている)
+
+(画像)
+
++++
+
+## Apple-Key-Door-Treasure
+
+- 50ステップ以内により多くのりんごを集めてドアを開けるゲーム
+- 探索ボーナスがあることで宝を取得できるようになっている
+- SILは短期的な探索に探索ボーナスは長期的な探索に使っており、相補的となっている
+
+---
+
+## Hard Exploration Atari Games
+
+- 探索が困難なAtariのゲームにおいてSILがあった方が有利に働きやすかった
+
++++
+
+- 他のアルゴリズムと比較しても良い成績となりやすかったが「Venture」のみ成績が悪かった.
+良い経験を一度も得られなかったからだと考えられる
+
+---
+
+## Overall Performance on Atari Games
+
+- 6/7 のAtariのゲームでSILが有効に働いた
+
++++
+
+- A2Cのみの方がいい結果のものもある.ゲーム初期の経験が後半に活かせないゲームもあり、これがネックになっていそう。
+- - SILの更新回数を減らすか目的関数のSIL項を小さくするパラメタを導入することで解決できると考えられる.
+
+---
+
+##  Effect of Lower Bound Soft Q-Learning
+
+- 方策オフ型actor-criticを使えばSILじゃなくて十分性能が出るのか確認
+- - ACPERで試したところ十分な性能が出なかった
+
+---
+
+##  Performance on MuJoCo
