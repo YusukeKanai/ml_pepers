@@ -329,3 +329,11 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 - - 改善できるタスクは限られている。ゲーム中に良い経験を得る機会が少ないから
 
 ![mujoco_task](SelfImitationLearning/assets/ppo_sil.png)
+
+---
+
+## 参考資料
+
+- [A2C](https://hackernoon.com/intuitive-rl-intro-to-advantage-actor-critic-a2c-4ff545978752)
+- [【論文】Self-Imitation Learning (SIL, 2018)](https://qiita.com/keisuke-nakata/items/dc09709f77245e958a0c#fn2)
+- [これからの強化学習](http://www.morikita.co.jp/books/book/3034)
