@@ -151,7 +151,7 @@ Entropyによって __ある状態での取りうる行動が分散された方�
 
 `\[
 \begin{aligned}
-Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\pi ^{*}}_k)] \\ 
+Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\pi ^{*}}_k)] \\
 V ^{*} (s_t) &= \alpha \log {\Sigma _{\alpha }\exp {(Q ^{*}(s_t, a)/{\alpha })}}
 \end{aligned}
 \]`
@@ -170,7 +170,7 @@ V ^{*} (s_t) &= \alpha \log {\Sigma _{\alpha }\exp {(Q ^{*}(s_t, a)/{\alpha })}}
 
 `\[
 \begin{aligned}
-Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\pi ^{*}}_k)] \\ 
+Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\pi ^{*}}_k)] \\
 &\geq \mathbb{E}_{\mu }[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^{k-t}(r_k + \alpha {\cal H}^{\mu }_k)]
 \end{aligned}
 \]`
@@ -200,7 +200,7 @@ Q^{*}(s_t, a_t) &= \mathbb{E}_{\pi ^{*}}[r_t + \Sigma ^{\infty}_{k=t+1} \gamma ^
 `\[
 \begin{aligned}
 {\cal L^{\it lb}_{policy}} &= -\log \pi_{\theta}(a|s)(\hat{R}-V_{\theta}(s))_{+} \\
-{\cal L^{\it lb}_{value}} &= \frac{1}{2}\|(\hat{R}-V_{\theta}(s))\|^2 \\ 
+{\cal L^{\it lb}_{value}} &= \frac{1}{2}\|(\hat{R}-V_{\theta}(s))\|^2 \\
 \hat{R} &= R-\alpha \log \pi _\theta (a|s)
 \end{aligned}
 \]`
@@ -301,6 +301,8 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 ## Overall Performance on Atari Games
 
 - 6/7 のAtariのゲームでSILが有効に働いた
+
++++
 
 ![sil_effect](SelfImitationLearning/assets/sil_effect.png)
 
