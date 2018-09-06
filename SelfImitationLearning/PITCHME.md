@@ -323,3 +323,9 @@ V^n_t = \Sigma ^{n-1}_{d=0}\gamma ^{d}r_{t+d} + \gamma ^{n}V_{\theta }(s_{t+n})]
 ---
 
 ##  Performance on MuJoCo
+
+- 連続操作においてSILが有効か確認した。
+- - A2Cの代わりにPPOを使用(ただし理論的に結び付けられる強い根拠はない)
+- - 改善できるタスクは限られている。ゲーム中に良い経験を得る機会が少ないから
+
+![mujoco_task](SelfImitationLearning/assets/ppo_sil.png)
