@@ -1,4 +1,8 @@
-# Variational Discriminator Bottleneck: Improving Imitation Learning, Inverse RL, and GANs by Constraining Information Flow
+# Variational Discriminator Bottleneck
+
+## Improving Imitation Learning, Inverse RL, and GANs by Constraining Information Flow
+
+---
 
 [arxiv](https://arxiv.org/pdf/1810.00821v1.pdf)
 [openreview](https://openreview.net/forum?id=HyxPx3R9tm)
