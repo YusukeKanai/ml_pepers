@@ -4,9 +4,9 @@
 
 ---
 
-[arxiv](https://arxiv.org/pdf/1810.00821v1.pdf)
-[openreview](https://openreview.net/forum?id=HyxPx3R9tm)
-[github](https://github.com/akanimax/Variational_Discriminator_Bottleneck)
+- [arxiv](https://arxiv.org/pdf/1810.00821v1.pdf)
+- [openreview](https://openreview.net/forum?id=HyxPx3R9tm)
+- [github](https://github.com/akanimax/Variational_Discriminator_Bottleneck)
 
 ---
 
@@ -21,3 +21,17 @@
 - Appendix:
 
 ---
+
+# GANは不安定
+
+---
+
+# Information Bottleneck Method
+
+https://www.cs.huji.ac.il/labs/learning/Papers/allerton.pdf
+
++++
+
+$$
+{\cal L}[p(\tilde x|x)] = I(\tilde X;X) - \beta I(\tilde X;Y)
+$$
