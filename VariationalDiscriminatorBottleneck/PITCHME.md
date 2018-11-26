@@ -122,12 +122,7 @@ __クロスエントロピー__
 
 __定式__
 
-`\[
-\begin{aligned}
-\max_{G}\min_{D}\mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[-\log (D(\mathbf{x}))] \\
-+ \mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[-\log (1-D(\mathbf{x}))]
-\end{aligned}
-\]`
+`\(\max_{G}\min_{D}\mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[-\log (D(\mathbf{x}))]+\mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[-\log (1-D(\mathbf{x}))]\)`
 
 +++
 
