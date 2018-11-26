@@ -35,9 +35,8 @@
    - ゆるいDiscriminatorはGeneratorの学習能力を弱いものにする
 
 \\
-\\
 
-### 不要な情報をどう取り除くかがポイント
+__不要な情報をどう取り除くかがポイント__
 
 ---
 
@@ -63,9 +62,9 @@ _クラスタリングされる離散確率変数Xと,Xに関連した情報Yを
 
 _形式的には次のような問題：XをX̃に分割する.この分割は,確率的写像 Pr[X̃|X]で表し,次式を最小化するように定める._
 
-\[
+`\[
 {\cal L}(\Pr [\tilde X | X]) = \text{I}(X;\tilde X)-\beta \text{I}(\tilde X|Y)
-\]
+\]`
 
 (引用:[朱鷺の森](http://ibisforest.org/index.php?%E6%83%85%E5%A0%B1%E3%83%9C%E3%83%88%E3%83%AB%E3%83%8D%E3%83%83%E3%82%AF))
 
@@ -73,7 +72,7 @@ _形式的には次のような問題：XをX̃に分割する.この分割は,�
 
 ![IB](VariationalDiscriminatorBottleneck/assets/IB.png)
 
-\(\min {\cal L}(\Pr [\tilde X | X])\) : 出来るだけ入力情報を圧縮すると同時に圧縮された情報が出力情報にとって意味あるものにする
+`\(\min {\cal L}(\Pr [\tilde X | X])\)` : 出来るだけ入力情報を圧縮すると同時に圧縮された情報が出力情報にとって意味あるものにする
 
 ---
 
@@ -83,7 +82,7 @@ _形式的には次のような問題：XをX̃に分割する.この分割は,�
 
 __目的函数__
 
-\[
+`\[
 \min_{q, E} \{
   \mathbb{E}_{\mathbf{x,y} \sim p(\mathbf{x,y})}[
     \mathbb{E}_{z \sim E(\mathbf{z|x})}[-\log{q(\mathbf{y|z})}]
@@ -92,7 +91,7 @@ __目的函数__
     \text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]
   ]-I_c)
   \}
-\]
+\]`
 
 ここで $\beta$ はラグランジュ乗数
 
@@ -109,9 +108,9 @@ __目的函数__
 
 __クロスエントロピー__
 
-\[
+`\[
 \min_{q} \mathbb{E}_{\mathbf{x, y}\sim p(\mathbf{x, y})}[-\log q(\mathbf{y|x})]
-\]
+\]`
 
 ---
 
@@ -123,28 +122,28 @@ __クロスエントロピー__
 
 __定式__
 
-\[
+`\[
 \max_{G} \min_{D} \mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[-\log(D(\mathbf{x}))] \\
 + \mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[-\log(1-D(\mathbf{x}))]
-\]
+\]`
 
 +++
 
 ##  Information Bottleneck法のGANへの応用
 
 - 入力情報 $X$ に対しボトルネックと課す
-   - encoder $E:\mathbf{z}\sim E(\mathbf{z|x})$ を導入
-   - 相互情報量 $I(X, Z)$ を $I_c$ に制限する
+   - encoder `\(E:\mathbf{z}\sim E(\mathbf{z|x})\)` を導入
+   - 相互情報量 `\(I(X, Z)\)` を `\(I_c\)` に制限する
 
 ![VDB](VariationalDiscriminatorBottleneck/assets/VDB.png)
 
 +++
 
-- \(\tilde{p} = \frac{1}{2} p^* + \frac{1}{2}G$\) として
+- `\(\tilde{p} = \frac{1}{2} p^* + \frac{1}{2}G\)` として
 
 __目的函数__
 
-\[
+`\[
 \begin{aligned}
 J(D,E) &= \\
 & \min_{D, E} \max_{\beta \geq 0 }
@@ -164,19 +163,19 @@ J(D,E) &= \\
 ] - I_c
 )
 \end{aligned}
-\]
+\]`
 
 +++
 
 ## $I_c$ の効果
 
-![Effects of $I_c$ ](VariationalDiscriminatorBottleneck/assets/effectivesofIc.png)
+![Effects of `\(I_c\)` ](VariationalDiscriminatorBottleneck/assets/effectivesofIc.png)
 
 +++
 
 ### 更新式
 
-\[
+`\[
 \begin{aligned}
 & D, E \leftarrow \arg \min_{D,E} {\cal L}(D, E, \beta) \\
 & \beta \leftarrow \max(0, \beta + \alpha _{\beta }(
@@ -185,11 +184,11 @@ J(D,E) &= \\
   ] - I_c
   ))
 \end{aligned}
-\]
+\]`
 
 ここで
 
-\[
+`\[
 \begin{aligned}
 {\cal L}(D, E, \beta)　&=
 \mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[
@@ -212,7 +211,7 @@ J(D,E) &= \\
 
 \alpha_{\beta} &: \text{Stepsize for dual variable in dual gradient descent}
 \end{aligned}
-\]
+\]`
 
 ---
 
@@ -239,7 +238,7 @@ J(D,E) &= \\
 ## Learning model
 
 - Gradient strategy: RMSProp (with a fixed learning rate)
-- \(\alpha_{\beta} = 10^{-5}\)
+- `\(\alpha_{\beta} = 10^{-5}\)`
 
 ![Generator](VariationalDiscriminatorBottleneck/assets/Generator_VDB.png)
 
