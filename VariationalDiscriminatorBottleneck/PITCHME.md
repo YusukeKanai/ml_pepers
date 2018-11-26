@@ -198,8 +198,16 @@ J(D,E) &= \\
 - Gradient strategy: RMSProp (with a fixed learning rate)
 - `\(\alpha_{\beta} = 10^{-5}\)`
 
-![Generator](VariationalDiscriminatorBottleneck/assets/Generator_VDB.png)
-![Discriminator](VariationalDiscriminatorBottleneck/assets/Discriminator_VDB.png)
+<table cellpadding="0" cellspacing="10"><tbody>
+<tr>
+<td>
+<img src="VariationalDiscriminatorBottleneck/assets/Generator_VDB.png" />
+</td>
+<td>
+<img src="VariationalDiscriminatorBottleneck/assets/Discriminator_VDB.png" />
+</td>
+</tr>
+</tbody></table>
 
 +++
 
