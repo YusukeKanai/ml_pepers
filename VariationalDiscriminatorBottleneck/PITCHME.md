@@ -13,16 +13,17 @@ __Improving Imitation Learning, Inverse RL, and GANs by Constraining Information
 ## Agenda
 
 - 敵対的学習の紹介
-- 先人の知恵: これまでのGANの学習を安定にさせた努力
-- 未だ残る課題: 何がたりなのか
-- 新しい仕組みの発明: 情報を与えないことが大事
-- 新しい仕組みを試す: 本当に上手くいくのか
+- 従来研究の復習
+   - Information Bottleneck Method
+   - Variational Information Bottleneck
+- Variational Discriminator Bottleneck(本研究)
+- 実験
 - まとめ
 - Appendix:
 
 ---
 
-## 敵対的学習の紹介
+## 敵対的学習の紹介
 
 - 高次元で複雑な構想をしたデータをモデル化してくれる
 - Generatorで上手くfakeデータを生成し, Discriminatorでfakeデータとrealデータを識別する学習をするゲーム理論的な戦略をとっている
@@ -33,14 +34,14 @@ __Improving Imitation Learning, Inverse RL, and GANs by Constraining Information
  - GeneratorとDiscriminatorのバランスが難しい
    - 厳しいDiscriminatorは不要な情報まで学習しようとする
    - ゆるいDiscriminatorはGeneratorの学習能力を弱いものにする
-
-\\
+   
+   
 
 __不要な情報をどう取り除くかがポイント__
 
 ---
 
-この研究では __対象物をDiscriminatorに渡す際に制限を課す.__ この制限は __変数近似をInformation Bottleneck法に適応すること__ で実現する
+この研究では __対象物をDiscriminatorに渡す際に制限を課す.__ この制限は __変数近似をInformation Bottleneck法に適応すること__ で実現する
 
 ---
 
@@ -78,7 +79,7 @@ _形式的には次のような問題：XをX̃に分割する.この分割は,�
 
 ## Variational Information Bottleneck (A.A.Alemi et al)
 
-- Information Bottleneck法を教師あり学習に応用した
+- Information Bottleneck法を教師あり学習に応用した
 
 __目的函数__
 
