@@ -45,7 +45,7 @@ __不要な情報をどう取り除くかがポイント__
 
 ---
 
-# Information Bottleneck Method(情報ボトルネック)
+## Information Bottleneck Method(情報ボトルネック)
 
 [The Information Bottleneck Method](https://www.cs.huji.ac.il/labs/learning/Papers/allerton.pdf)
 (99' Tishby et al.)
@@ -55,14 +55,9 @@ __不要な情報をどう取り除くかがポイント__
 
 +++
 
-_クラスタリングされる離散確率変数Xと,Xに関連した情報Yを考える.例えばXが単語集合で,Yは文書クラスなど.ここでX中の要素を，それらと関連情報Yの類似するように分割する.例えば,文書クラスを関連情報としたとき,同じクラスに現れやすい単語クラスタを獲得できたりする._
+_クラスタリングされる離散確率変数Xと,Xに関連した情報Yを考える.例えばXが単語集合で,Yは文書クラスなど.ここでX中の要素を，それらと関連情報Yの類似するように分割する.例えば,文書クラスを関連情報としたとき,同じクラスに現れやすい単語クラスタを獲得できたりする.形式的には次のような問題：XをX̃に分割する.この分割は,確率的写像 Pr[X̃|X]で表し,次式を最小化するように定める._
 
-_形式的には次のような問題：XをX̃に分割する.この分割は,確率的写像 Pr[X̃|X]で表し,次式を最小化するように定める._
-
-`\[
-{\cal L}(\Pr [\tilde X | X]) = \text{I}(X;\tilde X)-\beta \text{I}(\tilde X|Y)
-\]`
-
+`\({\cal L}(\Pr [\tilde X | X]) = \text{I}(X;\tilde X)-\beta \text{I}(\tilde X|Y)\)`
 (引用:[朱鷺の森](http://ibisforest.org/index.php?%E6%83%85%E5%A0%B1%E3%83%9C%E3%83%88%E3%83%AB%E3%83%8D%E3%83%83%E3%82%AF))
 
 +++
