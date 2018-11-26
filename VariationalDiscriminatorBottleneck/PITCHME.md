@@ -12,7 +12,7 @@
 
 ## Agenda
 
-- GANは不安定: 何故GANの学習は不安定なのか
+- 敵対的学習の紹介
 - 先人の知恵: これまでのGANの学習を安定にさせた努力
 - 未だ残る課題: 何がたりなのか
 - 新しい仕組みの発明: 情報を与えないことが大事
@@ -34,11 +34,14 @@
    - 厳しいDiscriminatorは不要な情報まで学習しようとする
    - ゆるいDiscriminatorはGeneratorの学習能力を弱いものにする
 
+\\
+\\
+
 ### 不要な情報をどう取り除くかがポイント
 
 ---
 
-### この研究では __対象物をDiscriminatorに渡す際に制限を課す.__ この制限は __変数近似をInformation Bottleneck法に適応すること__ で実現する
+この研究では __対象物をDiscriminatorに渡す際に制限を課す.__ この制限は __変数近似をInformation Bottleneck法に適応すること__ で実現する
 
 ---
 
@@ -60,7 +63,9 @@ _クラスタリングされる離散確率変数Xと,Xに関連した情報Yを
 
 _形式的には次のような問題：XをX̃に分割する.この分割は,確率的写像 Pr[X̃|X]で表し,次式を最小化するように定める._
 
-$$ {\cal L}(\Pr [\tilde X | X]) = \text{I}(X;\tilde X)-\beta \text{I}(\tilde X|Y) $$
+\[
+{\cal L}(\Pr [\tilde X | X]) = \text{I}(X;\tilde X)-\beta \text{I}(\tilde X|Y)
+\]
 
 (引用:[朱鷺の森](http://ibisforest.org/index.php?%E6%83%85%E5%A0%B1%E3%83%9C%E3%83%88%E3%83%AB%E3%83%8D%E3%83%83%E3%82%AF))
 
@@ -68,7 +73,7 @@ $$ {\cal L}(\Pr [\tilde X | X]) = \text{I}(X;\tilde X)-\beta \text{I}(\tilde X|Y
 
 ![IB](VariationalDiscriminatorBottleneck/assets/IB.png)
 
-min ${\cal L}(\Pr [\tilde X | X])$ : 出来るだけ入力情報を圧縮すると同時に圧縮された情報が出力情報にとって意味あるものにする
+\(\min {\cal L}(\Pr [\tilde X | X])\) : 出来るだけ入力情報を圧縮すると同時に圧縮された情報が出力情報にとって意味あるものにする
 
 ---
 
@@ -78,7 +83,7 @@ min ${\cal L}(\Pr [\tilde X | X])$ : 出来るだけ入力情報を圧縮する�
 
 __目的函数__
 
-$$
+\[
 \min_{q, E} \{
   \mathbb{E}_{\mathbf{x,y} \sim p(\mathbf{x,y})}[
     \mathbb{E}_{z \sim E(\mathbf{z|x})}[-\log{q(\mathbf{y|z})}]
@@ -87,7 +92,7 @@ $$
     \text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]
   ]-I_c)
   \}
-$$
+\]
 
 ここで $\beta$ はラグランジュ乗数
 
@@ -104,9 +109,9 @@ $$
 
 __クロスエントロピー__
 
-$$
+\[
 \min_{q} \mathbb{E}_{\mathbf{x, y}\sim p(\mathbf{x, y})}[-\log q(\mathbf{y|x})]
-$$
+\]
 
 ---
 
@@ -118,10 +123,10 @@ $$
 
 __定式__
 
-$$
+\[
 \max_{G} \min_{D} \mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[-\log(D(\mathbf{x}))] \\
 + \mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[-\log(1-D(\mathbf{x}))]
-$$
+\]
 
 +++
 
@@ -135,11 +140,11 @@ $$
 
 +++
 
-- $\tilde{p} = \frac{1}{2} p^* + \frac{1}{2}G$ として
+- \(\tilde{p} = \frac{1}{2} p^* + \frac{1}{2}G$\) として
 
 __目的函数__
 
-$$
+\[
 \begin{aligned}
 J(D,E) &= \\
 & \min_{D, E} \max_{\beta \geq 0 }
@@ -159,7 +164,7 @@ J(D,E) &= \\
 ] - I_c
 )
 \end{aligned}
-$$
+\]
 
 +++
 
@@ -171,7 +176,7 @@ $$
 
 ### 更新式
 
-$$
+\[
 \begin{aligned}
 & D, E \leftarrow \arg \min_{D,E} {\cal L}(D, E, \beta) \\
 & \beta \leftarrow \max(0, \beta + \alpha _{\beta }(
@@ -180,11 +185,11 @@ $$
   ] - I_c
   ))
 \end{aligned}
-$$
+\]
 
 ここで
 
-$$
+\[
 \begin{aligned}
 {\cal L}(D, E, \beta)　&=
 \mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[
@@ -207,7 +212,7 @@ $$
 
 \alpha_{\beta} &: \text{Stepsize for dual variable in dual gradient descent}
 \end{aligned}
-$$
+\]
 
 ---
 
@@ -234,7 +239,7 @@ $$
 ## Learning model
 
 - Gradient strategy: RMSProp (with a fixed learning rate)
-- $\alpha_{\beta} = 10^{-5}$
+- \(\alpha_{\beta} = 10^{-5}\)
 
 ![Generator](VariationalDiscriminatorBottleneck/assets/Generator_VDB.png)
 
