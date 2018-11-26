@@ -84,12 +84,12 @@ __目的函数__
 
 `\[
 \begin{aligned}
-\min_{q,E} & {\mathbb{E}_{\mathbf{x,y} \sim p(\mathbf{x,y})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log{q(\mathbf{y|z})}]] \\
-& +\beta　(\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x})}[\text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]]-I_c)}
+\min_{q,E} & \mathbb{E}_{\mathbf{x,y} \sim p(\mathbf{x,y})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log{q(\mathbf{y|z})}]] \\
+& +\beta　(\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x})}[\text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]]-I_c)
 \end{aligned}
 \]`
 
-ここで $\beta$ はラグランジュ乗数
+ここで $\beta$はラグランジュ乗数
 
 +++
 
