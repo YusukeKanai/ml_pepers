@@ -105,7 +105,7 @@ __クロスエントロピー__
 
 # Variational Discriminator Bottleneck
 
----
++++
 
 ## GANの復習
 
