@@ -83,14 +83,10 @@ _形式的には次のような問題：XをX̃に分割する.この分割は,�
 __目的函数__
 
 `\[
-\min_{q, E} \{
-  \mathbb{E}_{\mathbf{x,y} \sim p(\mathbf{x,y})}[
-    \mathbb{E}_{z \sim E(\mathbf{z|x})}[-\log{q(\mathbf{y|z})}]
-  ] \\
-  + \beta (\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x})}[
-    \text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]
-  ]-I_c)
-  \}
+\begin{aligned}
+\min_{q,E} & {\mathbb{E}_{\mathbf{x,y} \sim p(\mathbf{x,y})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log{q(\mathbf{y|z})}]] \\
+& +\beta　(\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x})}[\text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]]-I_c)}
+\end{aligned}
 \]`
 
 ここで $\beta$ はラグランジュ乗数
