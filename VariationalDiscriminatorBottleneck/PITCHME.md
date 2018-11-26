@@ -208,7 +208,6 @@ J(D,E) &= \\
   \text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]
 ] - I_c
 ), \\
-
 \alpha_{\beta} &: \text{Stepsize for dual variable in dual gradient descent}
 \end{aligned}
 \]`
