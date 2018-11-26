@@ -146,22 +146,9 @@ __目的函数__
 `\[
 \begin{aligned}
 J(D,E) &= \\
-& \min_{D, E} \max_{\beta \geq 0 }
-\mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[
-  \mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[
-    -\log(D(\mathbf{z}))
-  ]
-] \\
-+ \mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[
-  \mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[
-    -\log(1-D(\mathbf{z}))
-  ]
-] \\
-& + \beta (
-\mathbb{E}_{\mathbf{x}\sim \tilde{p} (\mathbf{x})}[
-  \text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]
-] - I_c
-)
+&\min_{D, E}\max_{\beta \geq 0}\mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log(D(\mathbf{z}))]] \\
+&+\mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log(1-D(\mathbf{z}))]] \\
+&+\beta (\mathbb{E}_{\mathbf{x}\sim \tilde{p} (\mathbf{x})}[\text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]]-I_c)
 \end{aligned}
 \]`
 
@@ -177,12 +164,8 @@ J(D,E) &= \\
 
 `\[
 \begin{aligned}
-& D, E \leftarrow \arg \min_{D,E} {\cal L}(D, E, \beta) \\
-& \beta \leftarrow \max(0, \beta + \alpha _{\beta }(
-  \mathbb{E}_{\mathbf{x}\sim \tilde{p} (\mathbf{x})}[
-    \text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]
-  ] - I_c
-  ))
+&D,E\leftarrow \arg \min_{D,E} {\cal L}(D, E, \beta) \\
+&\beta \leftarrow \max(0,\beta + \alpha_{\beta}(\mathbb{E}_{\mathbf{x}\sim \tilde{p} (\mathbf{x})}[\text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]]-I_c))
 \end{aligned}
 \]`
 
@@ -190,10 +173,10 @@ J(D,E) &= \\
 
 `\[
 \begin{aligned}
-{\cal L}(D, E, \beta) &= \mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log(D(\mathbf{z}))]]\\
-&+\mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log(1-D(\mathbf{z}))]]\\
-&+\beta (\mathbb{E}_{\mathbf{x}\sim \tilde{p} (\mathbf{x})}[\text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]]-I_c), \\
-\alpha_{\beta} &: \text{Stepsize for dual variable in dual gradient descent}
+&{\cal L}(D, E, \beta) &= \mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log(D(\mathbf{z}))]]\\
+& &+\mathbb{E}_{\mathbf{x}\sim G(\mathbf{x})}[\mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[-\log(1-D(\mathbf{z}))]]\\
+& &+\beta (\mathbb{E}_{\mathbf{x}\sim \tilde{p} (\mathbf{x})}[\text{KL}[E(\mathbf{z|x})||r(\mathbf{z})]]-I_c), \\
+&\alpha_{\beta} : \text{Stepsize for dual variable in dual gradient descent}
 \end{aligned}
 \]`
 
