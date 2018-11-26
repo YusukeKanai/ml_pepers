@@ -190,7 +190,7 @@ J(D,E) &= \\
 
 `\[
 \begin{aligned}
-{\cal L}(D, E, \beta)　&=
+{\cal L}(D, E, \beta) &=
 \mathbb{E}_{\mathbf{x}\sim p^* (\mathbf{x})}[
   \mathbb{E}_{\mathbf{z}\sim E(\mathbf{z|x})}[
     -\log(D(\mathbf{z}))
@@ -237,7 +237,7 @@ J(D,E) &= \\
 ## Learning model
 
 - Gradient strategy: RMSProp (with a fixed learning rate)
-- `\(\alpha_{\beta} = 10^{-5}\)`
+- `\(\alpha_{\beta} = 10^{-5}\)`
 
 ![Generator](VariationalDiscriminatorBottleneck/assets/Generator_VDB.png)
 
