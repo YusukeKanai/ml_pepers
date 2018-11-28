@@ -170,11 +170,12 @@ J(D,E) &= \\
 
 +++
 
-実装では`\(r(\mathbf{z})={\cal N}(0,I), E(\mathbf{z|x})={\cal N}(\mu_{E},\Sigma_E)\)`として生成器の目的函数を
+実装では`\(r(\mathbf{z})={\cal N}(0,I), E(\mathbf{z|x})={\cal N}(\mu_{E},\Sigma_E)\)`として
+- 生成器の目的函数を
 `\[
 \mathbb{E}_{\mathbf{x} \sim G(\mathbf{x})}[-\log (1-D(\mu_{E}(\mathbf{x})))]
 \]`
-Discriminatorのモデルを
+- Discriminatorのモデルを
 `\[
 D_{\mathbf{z}} = \sigma (\mathbf{w}_D^T \mathbf{z}+\mathbf{b}_D)
 \]`
