@@ -216,3 +216,17 @@ J(D,E) &= \\
 ![image_generation_FID](VariationalDiscriminatorBottleneck/assets/image_generation_FID.png)
 
 ![image_generation](VariationalDiscriminatorBottleneck/assets/image_generation.png)
+
+---
+
+ちなみに筆者はこんな事も言ってている
+_Our method can be easily applied to a variety of tasks and architectures._
+
++++
+
+Githubを見ると確かに
+- DCGAN
+- WGAN
+- LSGAN
+- HingeGAN
+などに応用しようとしている事がわかる
