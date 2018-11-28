@@ -71,7 +71,13 @@ _クラスタリングされる離散確率変数Xと,Xに関連した情報Yを
 
 ## Variational Information Bottleneck (A.A.Alemi et al)
 
++++
+
 - Information Bottleneck法を教師あり学習に応用した
+- 過学習しにくい
+- Adversarial examplesに頑強
+
++++
 
 __目的函数__
 
@@ -84,18 +90,7 @@ __目的函数__
 
 ここで $\beta$はラグランジュ乗数
 
-+++
-
-- 過学習しにくい
-- Adversarial examplesに頑強
-
-+++
-
-## 教師あり学習
-
-- 予測するモデルを学習し真のモデルへ近づける手法
-
-__クロスエントロピー__
+ちなみに教師あり学習では
 
 `\[
 \min_{q} \mathbb{E}_{\mathbf{x, y}\sim p(\mathbf{x, y})}[-\log q(\mathbf{y|x})]
