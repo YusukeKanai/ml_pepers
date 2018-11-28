@@ -168,12 +168,24 @@ J(D,E) &= \\
 \alpha_{\beta} : \text{Stepsize for dual variable in dual gradient descent}
 \]`
 
++++
+
+実装では`r(\mathbf{z})={\cal N}(0,I), E(\mathbf{z|x})={\cal N}(\mu_{E},\Sigma_E)`として生成器の目的函数を
+`\[
+\mathbb{E}_{\mathbf{x} \sim G(\mathbf{x})}[-\log (1-D(\mu_{E}(\mathbf{x})))]
+\]`
+Discriminatorのモデルを
+`\[
+D_{\mathbf{z}} = \sigma (\mathbf{w}_D^T \mathbf{z}+\mathbf{b}_D)
+\]`
+とした。
+
 ---
 
 - 模倣学習
 - 逆強化学習
 
-への応用の理論的解説は省略
+への応用の理論的解説/実験は省略
 (GANとほぼ同じ議論になるため)
 
 ---
