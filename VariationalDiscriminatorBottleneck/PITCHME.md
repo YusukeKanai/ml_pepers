@@ -41,7 +41,7 @@ __不要な情報をどう取り除くかがポイント__
 
 ---
 
-この研究では __対象物をDiscriminatorに渡す際に制限を課す.__ この制限は __変分法とreparameterization trickをInformation Bottleneck法に適応すること__ で実現する
+この研究では __対象物をDiscriminatorに渡す際に制限を課す.__ この制限は __Information Bottleneck法__ で実現する
 
 ---
 
