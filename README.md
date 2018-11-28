@@ -4,3 +4,8 @@
 ## Self-Imitation Learning
 
 [Slide](https://gitpitch.com/YusukeKanai/ml_pepers?p=SelfImitationLearning)
+
+
+## Variational
+
+[Slide](https://gitpitch.com/YusukeKanai/ml_pepers/?p=VariationalDiscriminatorBottleneck)
