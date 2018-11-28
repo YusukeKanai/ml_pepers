@@ -236,9 +236,8 @@ Variational Information Bottleneck法は'\(E(z|x)\)'に対し、'\(I(z,x) < I_c\
 +++
 
 だけど以下の文章がよくわからない
-```
-we can dynamically adjust the variance of the noise such that the distributions not only share support in the embedding space, but also have significant overlap. Since the minimum amount of information required for binary classification is 1 bit, by selecting an information constraint I_c < 1, the discriminator is prevented from from perfectly differentiating between the distributions.
-```
+_we can dynamically adjust the variance of the noise such that the distributions not only share support in the embedding space, but also have significant overlap. Since the minimum amount of information required for binary classification is 1 bit, by selecting an information constraint I_c < 1, the discriminator is prevented from from perfectly differentiating between the distributions._
+
 +++
 
 ## $I_c$ の効果
