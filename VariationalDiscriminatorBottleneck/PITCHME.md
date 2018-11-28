@@ -142,12 +142,6 @@ J(D,E) &= \\
 
 +++
 
-## $I_c$ の効果
-
-![Effects of `\(I_c\)` ](VariationalDiscriminatorBottleneck/assets/effectivesofIc.png)
-
-+++
-
 ### 更新式
 
 `\[
@@ -230,6 +224,30 @@ D_{\mathbf{z}} = \sigma (\mathbf{w}_D^T \mathbf{z}+\mathbf{b}_D)
 ---
 
 ## 考察・まとめ
+
++++
+
+VDBが上手く学習できる理由はArjovskyらの提案する[ノイズを入れる手法](https://github.com/soumith/ganhacks#13-add-noise-to-inputs-decay-over-time)に似ている。
+KL-divergenceでは分布の台が互いに素な函数に対してgeneratorを更新する勾配値が消失する事が証明されている。
+二つの分布を連続的にするためにノイズを入れるが、この入れ方もシビアである。
+Variational Information Bottleneck法は'\(E(z|x)\)'に対し、'\(I(z,x) < I_c\)'の制限を与える事で
+分布間に重なりを持たせられるようにしている。
+
++++
+
+だけど以下の文章がよくわからない
+```
+we can dynamically adjust the variance of the noise such that the distributions not only share support in the embedding space, but also have significant overlap. Since the minimum amount of information required for binary classification is 1 bit, by selecting an information constraint I_c < 1, the discriminator is prevented from from perfectly differentiating between the distributions.
+```
++++
+
+## $I_c$ の効果
+
+![Effects of `\(I_c\)` ](VariationalDiscriminatorBottleneck/assets/effectivesofIc.png)
+
++++
+
+# Information Bottleneck法でGANや模倣学習、逆強化学習のより良い学習法を得られた
 
 ---
 
