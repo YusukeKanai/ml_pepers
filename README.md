@@ -8,4 +8,4 @@
 
 ## Variational
 
-[Slide](https://gitpitch.com/YusukeKanai/ml_pepers/VariationalDiscriminatorBottleneck?p=VariationalDiscriminatorBottleneck)
+[Slide](https://gitpitch.com/YusukeKanai/ml_pepers/?p=VariationalDiscriminatorBottleneck)
