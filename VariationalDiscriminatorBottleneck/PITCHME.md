@@ -18,7 +18,7 @@ __Improving Imitation Learning, Inverse RL, and GANs by Constraining Information
    - Variational Information Bottleneck
 - Variational Discriminator Bottleneck(本研究)
 - 実験
-- まとめ
+- 考察・まとめ
 - Appendix:
 
 ---
@@ -216,6 +216,10 @@ J(D,E) &= \\
 ![image_generation_FID](VariationalDiscriminatorBottleneck/assets/image_generation_FID.png)
 
 ![image_generation](VariationalDiscriminatorBottleneck/assets/image_generation.png)
+
+---
+
+## 考察・まとめ
 
 ---
 
